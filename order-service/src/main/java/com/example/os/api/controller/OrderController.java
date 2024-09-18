@@ -1,7 +1,8 @@
 package com.example.os.api.controller;
 
 import com.example.os.api.service.OrderService;
-import com.example.os.api.entity.Order;
+import com.example.os.api.common.TransactionRequest;
+import com.example.os.api.common.TransactionResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,7 +18,9 @@ public class OrderController {
     private OrderService service;
 
     @PostMapping("/bookOrder")
-    public Order bookOrder(@RequestBody Order order) {
-        return service.saveOrder(order);
+    public TransactionResponse bookOrder(@RequestBody TransactionRequest request) {
+        return service.saveOrder(request);
+
+        // do a rest call to payment and pass the order id
     }
 }
