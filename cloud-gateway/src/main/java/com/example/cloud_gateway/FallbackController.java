@@ -1,4 +1,4 @@
-package com.example.cloud_api_gateway;
+package com.example.cloud_gateway;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
