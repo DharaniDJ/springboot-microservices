@@ -24,7 +24,7 @@ public class OrderService {
     @Lazy
     private RestTemplate template;
 
-    @Value("${microservice.payment-service.endpoints.endpoint.uri}")
+    @Value("${microservices.payment-service.endpoints.endpoint.url}")
     private String ENDPOINT_URL;
 
     public TransactionResponse saveOrder(TransactionRequest request) {
