@@ -10,4 +10,4 @@ spring:
 
 logging:
     file:
-        name: logs\microservices.log
+        name: C:/Users/dharani.chrinta/Developer/Personal/springboot-microservices/logs/microservices.log
