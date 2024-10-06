@@ -27,8 +27,8 @@ resilience4j:
       userService:
         registerHealthIndicator: true
         eventConsumerBufferSize: 10
-        failureRateThreshold: 5
-        minimumNumberOfCalls: 3
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 5
         automaticTransitionFromOpenToHalfOpenEnabled: true
         waitDurationInOpenState: 5s
         permittedNumberOfCallsInHalfOpenState: 3
