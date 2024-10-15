@@ -4,6 +4,8 @@ package com.example.security_service.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
+
 import com.example.security_service.dto.JwtResponse;
 import com.example.security_service.dto.RefreshTokenRequest;
 import com.example.security_service.entity.RefreshToken;
@@ -43,19 +45,19 @@ public class AuthService {
         jwtService.validateToken(token);
     }
 
-    public JwtResponse refreshToken(RefreshTokenRequest refreshTokenRequest) {
-        return refreshTokenService.findByToken(refreshTokenRequest.getToken())
-                .map(refreshTokenService::verifyExpiration)
-                .map(RefreshToken::getUser)
-                .map(user -> {
-                    String accessToken = jwtService.generateToken(user.getUsername());
-                    return JwtResponse.builder()
-                            .accessToken(accessToken)
-                            .token(refreshTokenRequest.getToken())
-                            .build();
-                })
-                .orElseThrow(() -> new RuntimeException("Invalid refresh token"));      
+    // public JwtResponse refreshToken(RefreshTokenRequest refreshTokenRequest) {
+    //     return refreshTokenService.findByToken(refreshTokenRequest.getToken())
+    //             .map(refreshTokenService::verifyExpiration)
+    //             .map(RefreshToken::getUser)
+    //             .map(user -> {
+    //                 String accessToken = jwtService.generateToken(user.getUsername());
+    //                 return JwtResponse.builder()
+    //                         .accessToken(accessToken)
+    //                         .token(refreshTokenRequest.getToken())
+    //                         .build();
+    //             })
+    //             .orElseThrow(() -> new RuntimeException("Invalid refresh token"));      
                 
-    }
+    // }
 
 }
