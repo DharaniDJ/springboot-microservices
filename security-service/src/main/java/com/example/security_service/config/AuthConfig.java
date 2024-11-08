@@ -35,6 +35,15 @@ public class AuthConfig {
                 .build();
     }
 
+    // @Bean
+    // public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    //     return http.csrf().disable()
+    //             .authorizeHttpRequests()
+    //             .requestMatchers("/auth/register", "/auth/getToken", "/auth/validateToken").permitAll()
+    //             .and()
+    //             .build();
+    // }
+
     @Bean
     public AuthenticationProvider authenticationProvider(){
         DaoAuthenticationProvider authenticationProvider=new DaoAuthenticationProvider();
